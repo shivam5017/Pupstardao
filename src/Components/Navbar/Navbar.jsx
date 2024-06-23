@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
     <div className='nav-div'>
-       <img src={Logo} className='logo'/>
+       <img src={Logo} alt="logo" className='logo'/>
         <IoMdSettings size={24} className='settings-icon'/>
     </div>
   )
