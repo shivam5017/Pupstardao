@@ -12,6 +12,23 @@
     padding: 10px;
   }
 
-  .settings-icon{
+
+
+  /* SPin animation of settings icon */
+
+  .settings-icon {
+    animation: spin 1s linear;
     padding: 10px;
+    color: #928c88;
   }
+  .setting-icon-off{
+    padding: 10px;
+    color: #928c88;
+  }
+  
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  
