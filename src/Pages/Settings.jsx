@@ -1,5 +1,4 @@
 import React from 'react'
-import transition from "../transition"
 import "./Settings.css"
 
 const Settings = () => {
@@ -10,4 +9,4 @@ const Settings = () => {
   )
 }
 
-export default transition(Settings);
+export default Settings;

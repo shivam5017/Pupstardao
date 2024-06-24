@@ -1,7 +1,7 @@
 
 import Navbar from "./Components/Navbar/Navbar";
 import AllRoute from "./Routes/AllRoutes";
-
+import "./App.css"
 
 function App() {
 
