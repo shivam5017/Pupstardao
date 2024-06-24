@@ -3,12 +3,13 @@ import "./Navbar.css"
 import { IoMdSettings } from "react-icons/io"
 import Logo from "../../Images/logo.jpeg"
 import { useNavigate } from "react-router-dom";
-
+import { useLocation } from 'react-router-dom';
+import { IoArrowBackCircle } from "react-icons/io5";
 
 const Navbar = () => {
   const navigate=useNavigate();
   const [isSpinning, setIsSpinning] = useState(false);
-
+  const location = useLocation();
 
 
   useEffect(() => {
@@ -29,9 +30,15 @@ const Navbar = () => {
     setIsSpinning(!isSpinning);
   };
 
+  const backbtn=()=>{
+     navigate('/')
+  }
+
+
+
   return (
     <div className='nav-div'>
-       <img src={Logo} alt="logo" className='logo'/>
+        {location.pathname!=="/"?<IoArrowBackCircle  size={25} className='back-logo' onClick={backbtn} />:<img src={Logo} alt="logo" className='logo' />}
         <IoMdSettings size={24} className={isSpinning ? 'settings-icon' : 'setting-icon-off'} onClick={handleSpin}/>
     </div>
   )
