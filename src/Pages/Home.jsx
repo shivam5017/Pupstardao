@@ -23,7 +23,7 @@ const Home = () => {
 
     
 
-   },[mined])
+   },[totalMined])
    console.log(totalMined,'check')
    console.log(mined)
   
