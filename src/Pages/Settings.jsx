@@ -1,10 +1,9 @@
 import React from 'react'
-import "./Settings.css"
 
 const Settings = () => {
   return (
-    <div className='settings-div'>
-      <h2>App Undermaintance</h2>
+    <div style={{padding:"10px"}}>
+      <h2 style={{fontFamily: "Josefin Sans",fontSize:"20px"}}>This feature is coming soon stay tuned</h2>
     </div>
   )
 }

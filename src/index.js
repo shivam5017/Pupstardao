@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <ThirdwebProvider activeChain="sepolia" clientId='b3fa94191774eb344f46d7e1a8a52305'>
+    <ThirdwebProvider activeChain="sepolia" clientId='b3fa94191774eb344f46d7e1a8a52305' >
       <App />
       </ThirdwebProvider>
 
