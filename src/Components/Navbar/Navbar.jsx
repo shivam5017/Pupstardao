@@ -41,7 +41,7 @@ const Navbar = () => {
     <div className='nav-div'>
         {location.pathname!=="/"?<IoArrowBackCircle  size={25} className='back-logo' onClick={backbtn} />:<img src={Logo} alt="logo" className='logo' />}
         <div className='nav-tools-div'>
-        <ConnectWallet modalSize='medium' btnTitle="Connect My Wallet"  connectors={["injected", "walletconnect"]} style={{fontSize:"10px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black",fontFamily: "Josefin Sans",fontSize:"10px"}}/>
+        <ConnectWallet modalSize='medium' btnTitle="Connect My Wallet"  connectors={["injected", "walletconnect"]} style={{fontSize:"10px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black",fontFamily: "Josefin Sans"}}/>
         <IoMdSettings size={24} className={isSpinning ? 'settings-icon' : 'setting-icon-off'} onClick={handleSpin}/>
         </div>
     </div>

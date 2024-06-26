@@ -17,7 +17,7 @@ const ClaimFarmer = () => {
              <MediaRenderer src={metadata?.image} alt="farmer" style={{width:"100%"}}/>
        </div>
          <div className='btn-div'>
-       <Web3Button contractAddress={FARMER_ADDRESS} action={(contract)=>contract.erc1155.claim(0,1)}  style={{fontSize:"10px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black",marginTop:"30px",fontFamily: "Josefin Sans",fontSize:"20px"}}>
+       <Web3Button contractAddress={FARMER_ADDRESS} action={(contract)=>contract.erc1155.claim(0,1)}  style={{fontSize:"10px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black",marginTop:"30px",fontFamily: "Josefin Sans"}}>
         Claim Farmer
       </Web3Button>
          </div>

@@ -26,7 +26,7 @@ const Home = () => {
     )
 
    
-    const {data:ownedTools,isLoading: loadingOwnedTools} = useOwnedNFTs(
+    const {data:ownedTools} = useOwnedNFTs(
       toolsContract,address
     )
   
@@ -46,8 +46,8 @@ const Home = () => {
          <h1 style={{fontFamily: "Josefin Sans",fontSize:"20px"}}>Welcome to Pupstar please connect</h1>
       </div>
       <div>
-        <img src={Background}  style={{height:"100%",width:"100%"}}/>
-        <img src={Logo}  style={{height:"100%",width:"100%"}}/>
+        <img src={Background}  style={{height:"100%",width:"100%"}} alt="Background"/>
+        <img src={Logo}  style={{height:"100%",width:"100%"}} alt="Background-2"/>
       </div>
 
       </>
