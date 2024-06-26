@@ -2,7 +2,6 @@ import React from 'react'
 import { MediaRenderer,Web3Button,useAddress,useContract } from '@thirdweb-dev/react'
 import { NFT } from '@thirdweb-dev/sdk'
 import { STAKING_ADDRESS,TOOLS_ADDRESS } from '../../Const/address'
-import { useNavigate } from 'react-router-dom'
 
 
 type Props={
@@ -11,7 +10,7 @@ type Props={
 }
 
 const Inventory = ({nft}:Props) => {
-    const navigate=useNavigate()
+    
      const address= useAddress();
      const {contract:toolsContract}=useContract(TOOLS_ADDRESS);
      const {contract:stakingContract}=useContract(STAKING_ADDRESS);
@@ -21,7 +20,6 @@ const Inventory = ({nft}:Props) => {
         return (
           <div style={{display:"flex",justifyContent:"space-between",padding:'10px'}}>
              <h1 style={{fontFamily: "Josefin Sans",fontSize:"15px"}}>No Tools in Inventory.</h1>
-             <button style={{fontSize:"20px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black",fontFamily: "Josefin Sans"}} onClick={()=>navigate('/shop')}>Shop</button>
           </div>
         )
      }

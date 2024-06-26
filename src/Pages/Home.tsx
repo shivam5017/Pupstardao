@@ -8,9 +8,14 @@ import Inventory from '../Components/Inventory/Inventory.tsx'
 import Equipped from '../Components/Equipped/Equipped.tsx'
 import Background from "../Images/background.jpeg"
 import Logo from "../Images/logo.jpeg"
+import { Skeleton,Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom'
+import { AiTwotoneShop } from "react-icons/ai";
+import { MdOutlineInventory } from "react-icons/md";
 
 const Home = () => {
 
+  const navigate = useNavigate();
   const address= useAddress();
 
   const {contract: farmerContract}=useContract(FARMER_ADDRESS)
@@ -42,8 +47,15 @@ const Home = () => {
     return (
       <>
      
-      <div className='home-div'>
-         <h1 style={{fontFamily: "Josefin Sans",fontSize:"20px"}}>Welcome to Pupstar please connect</h1>
+      <div className='home-div' >
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <h1 style={{fontFamily: "Josefin Sans",fontSize:"20px"}}>Welcome to PUPSTAR DAO</h1>
+        </div>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <p style={{fontFamily: "Josefin Sans",fontSize:"15px"}}>Connect Wallet to earn $PUPSTAR</p>
+        </div>
+       
+          
       </div>
       <div>
         <img src={Background}  style={{height:"100%",width:"100%"}} alt="Background"/>
@@ -56,9 +68,16 @@ const Home = () => {
 
   if(loadingOwnedFarmers){
     return (
-      <div>
-         <h1>Loading...</h1>
-      </div>
+       <>
+       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+         <Box sx={{ width: 300,maxHeight:500}}>
+         <Skeleton animation="wave"  height={500}/>
+         </Box>
+       </div>
+       
+       </>
+         
+      
     )
   }
  
@@ -72,7 +91,6 @@ const Home = () => {
     )
   }
 
-console.log(equippedTools[0]?.length===0)
 
   return (
     <>
@@ -97,9 +115,13 @@ console.log(equippedTools[0]?.length===0)
               }
       </h2>
       </div>
+      {/* shop */}
+      <div style={{display:"flex",justifyContent:"center",padding:'10px'}}>
+      <button style={{display:"flex",justifyContent:"center",alignItems:"center",fontSize:"20px",height:"40px",width:"80px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black",fontFamily: "Josefin Sans",borderRadius:'10px'}} onClick={()=>navigate('/shop')}>Shop <AiTwotoneShop /></button>
+      </div>
       {/* inventory */}
-      <div className='home-div' style={{height:"fit-content",}}>
-         <h1 style={{fontFamily: "Josefin Sans",fontSize:"15px"}}>Inventory:</h1>
+      <div className='home-div' style={{height:"fit-content",padding:"10px"}}>
+         <h1 style={{fontFamily: "Josefin Sans",fontSize:"15px",display:"flex",justifyContent:"center",alignItems:"center"}}>Inventory <MdOutlineInventory /></h1>
         
          <Inventory
             nft={ownedTools}

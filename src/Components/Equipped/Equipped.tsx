@@ -30,6 +30,9 @@ const Equipped = (props:EquippedProps) => {
     <div style={{overflow:"hidden"}}>
         {nft && (
             <>
+            <div  style={{fontSize:"10px",borderBottom:"1px solid black",padding:"10px"}}>
+
+       
             <div>
                 <div style={{display:"flex",justifyContent:"center"}}>
                    <MediaRenderer 
@@ -72,13 +75,10 @@ const Equipped = (props:EquippedProps) => {
                  </Web3Button>
                  </div>
             </div>
+            </div>
            </>
         )}
-        {!nft && (
-            <div>
-                <h1>test</h1>
-            </div>
-        )}
+       
         
     </div>
   )

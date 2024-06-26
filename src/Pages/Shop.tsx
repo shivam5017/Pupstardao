@@ -2,6 +2,8 @@ import React from 'react'
 import { useContract, useNFTs } from '@thirdweb-dev/react'
 import { TOOLS_ADDRESS } from '../Const/address'
 import NFTCARD from '../Components/NFT/NFT.tsx'
+import { Skeleton,Box } from '@mui/material';
+
 
 const Shop = () => {
 
@@ -24,7 +26,13 @@ const Shop = () => {
 
              {
                 !nfts? (
-                    <h1>Loading...</h1>
+                   <>
+                       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+                    <Box sx={{ width: 300,maxHeight:500}}>
+                      <Skeleton animation="wave"  height={500}/>
+                     </Box>
+                    </div> 
+                   </>
                 ):(
                     <div style={{padding:"10px"}}>
                         {
