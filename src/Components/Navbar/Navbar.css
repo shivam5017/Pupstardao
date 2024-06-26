@@ -1,10 +1,19 @@
 .nav-div{
-    background: linear-gradient(to right, RGB(3 119 30), RGB(2 68 18));
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
 }
+
+.nav-tools-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
 
 .logo {
     width: 50px; /* Adjust width as needed */
@@ -15,7 +24,7 @@
 
   .back-logo{
     padding: 10px;
-    color: RGB(7 190 25);
+    
   }
 
   
@@ -25,11 +34,9 @@
   .settings-icon {
     animation: spin 1s linear;
     padding: 10px;
-    color: RGB(7 190 25);
   }
   .setting-icon-off{
     padding: 10px;
-    color: RGB(7 190 25);
   }
   
   @keyframes spin {

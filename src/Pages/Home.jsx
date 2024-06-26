@@ -1,36 +1,50 @@
-import React,{useEffect, useState} from 'react'
+import React from 'react'
 import './Home.css'
-import { LuDog } from "react-icons/lu";
-
+import { useAddress,useContract, useOwnedNFTs } from '@thirdweb-dev/react'
+import {FARMER_ADDRESS} from "../Const/address"
+import ClaimFarmer from '../Components/ClaimFarmer/ClaimFarmer'
+// STAKING_ADDRESS, TOOLS_ADDRESS,REWARDS_ADDRESS
 const Home = () => {
 
+  const address= useAddress();
+
+  const {contract: farmerContract}=useContract(FARMER_ADDRESS)
+  // const {contract: toolsContract}=useContract(TOOLS_ADDRESS)
+  // const {contract: stakingContract}=useContract(STAKING_ADDRESS)
+  // const {contract: rewardContract}=useContract(REWARDS_ADDRESS)
+
+
+  const {
+    data: ownedFarmers,
+    isLoading : loadingOwnedFarmers } = useOwnedNFTs(
+      farmerContract,address
+    )
   
-  const [mined,setMined]=useState(false)
- const [totalMined,setTotalMined]=useState(0)
-   
 
-//  Add mining strucutre
-   useEffect(()=>{
-  
-     if(totalMined===100){
-      setMined(true) 
-    }
-    let intervalId = setInterval(() => {
-      setTotalMined((prevCount) => Math.min(prevCount + 1, 100)); // Limit count to 100
-    }, 1000); // Adjust for 1 second intervals
+  if(!address) {
+    return (
+      <div>
+         <h1>Welcome to Pupstar please connect</h1>
+      </div>
+    )
+  }
 
-    return () => clearInterval(intervalId);
+  if(loadingOwnedFarmers){
+    return (
+      <div>
+         <h1>Loading...</h1>
+      </div>
+    )
+  }
+ 
 
+  if(ownedFarmers.length===0){
     
-
-   },[totalMined])
-   console.log(totalMined,'check')
-   console.log(mined)
-  
-  const startMine=()=>{
-    setMined(false)
-    setTotalMined(0);
-    
+    return (
+      <div>
+         <ClaimFarmer />
+      </div>
+    )
   }
 
 
@@ -38,38 +52,12 @@ const Home = () => {
   return (
     <>
      <div className='home-div'>
-      <div className='home-div-1'>
-         <h5>Total Balance</h5>
-      </div>
-      <div className='home-div-2'>
-          <h3>0</h3>
-      </div>
-    </div>
-    <div className='game-div'>
-          <div className='balance-div'> 
-             <h2>PupStar Balance</h2>
-             <h3>0</h3>
-          </div>
-          <div className='miner-div'>
-            <div className='miner-icons'>
-            <LuDog size={50} className={mined?'game-icon-full-mined':'game-icon '} />
-            <LuDog size={50} className={mined?'game-icon-full-mined':'game-icon '} />
-            <LuDog size={50} className={mined?'game-icon-full-mined':'game-icon '} />
-            <LuDog size={50} className={mined?'game-icon-full-mined':'game-icon '} />
-            <LuDog size={50} className={mined?'game-icon-full-mined':'game-icon '} />
-            </div>
-            <div className='miner-btn'>
-               <div className='mining-indicator-div'>
-                 <h3>{totalMined}/100%</h3>
-               </div>
-               <button onClick={startMine}>{!mined?'Mining':'Claim'}</button>
-            </div>
-          
-          </div>
+      <h1>Content</h1>
     </div>
     </>
    
   )
 }
+
 
 export default Home;

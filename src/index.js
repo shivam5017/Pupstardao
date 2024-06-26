@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+    <ThirdwebProvider activeChain="sepolia" clientId='b3fa94191774eb344f46d7e1a8a52305'>
+      <App />
+      </ThirdwebProvider>
+
+     
     </BrowserRouter>
   </React.StrictMode>
 );

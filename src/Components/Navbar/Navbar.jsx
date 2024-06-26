@@ -5,6 +5,7 @@ import Logo from "../../Images/logo.jpeg"
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
 import { IoArrowBackCircle } from "react-icons/io5";
+import {ConnectWallet} from "@thirdweb-dev/react"
 
 const Navbar = () => {
   const navigate=useNavigate();
@@ -39,7 +40,10 @@ const Navbar = () => {
   return (
     <div className='nav-div'>
         {location.pathname!=="/"?<IoArrowBackCircle  size={25} className='back-logo' onClick={backbtn} />:<img src={Logo} alt="logo" className='logo' />}
+        <div className='nav-tools-div'>
+        <ConnectWallet modalSize='medium' btnTitle="Connect My Wallet" style={{fontSize:"10px", borderTop:"4px solid black",borderRight:"4px solid black",borderBottom:"1px solid black",borderLeft:"1px solid black"}}/>
         <IoMdSettings size={24} className={isSpinning ? 'settings-icon' : 'setting-icon-off'} onClick={handleSpin}/>
+        </div>
     </div>
   )
 }
